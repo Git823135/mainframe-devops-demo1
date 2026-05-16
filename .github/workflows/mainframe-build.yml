@@ -1,0 +1,28 @@
+name: Mainframe DevOps Build
+run-name: ${{ github.actor }} is building mainframe code
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Simulate DBB Build
+        run: |
+          echo "===== Starting IBM DBB Build Simulation ====="
+          echo "1. Scanning program dependencies (COPYBOOKs, subroutines)..."
+          sleep 2
+          echo "2. Compiling COBOL programs in order..."
+          sleep 2
+          echo "3. Linking and creating LOADLIB..."
+          sleep 2
+          echo "✅ Build completed successfully! Return code 0."
+      
+      - name: Post Build
+        run: |
+          echo "Build artifacts ready for deployment."
